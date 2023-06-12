@@ -23,12 +23,11 @@ const getUser = (req: Request, res: Response) => {
 };
 
 const getUsers = (req: Request, res: Response) => {
-  //busca todos os usuarios na base de dados
+  //busca todos os usuários na base de dados
   //preocupação: erro na consulta tratado com trycatch
   //caso não tenha registro na consulta retorna um objeto com array vazio
   try {
-    const user = fakeData.values();
-    res.json({ user });
+    res.json(fakeData);
   } catch (error) {
     res.status(500).json({ message: "Server error", erro: error });
   }

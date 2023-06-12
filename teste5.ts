@@ -21,7 +21,7 @@ const getUserReadCount = (req: Request, res: Response) => {
     }
   }, 0);
 
-  return res.send(`Usuário ${name} foi lido ${count} vezes.`);
+  return res.json(`Usuário ${name} foi lido ${count} vezes.`);
 };
 
 export default getUserReadCount;
