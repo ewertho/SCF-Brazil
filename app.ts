@@ -5,6 +5,7 @@ import teste2 from "./teste2";
 import teste3 from "./teste3";
 import teste4 from "./teste4";
 import teste5 from "./teste5";
+import checkUserPermissions from "./auth";
 
 const app = express();
 const port = 3000;
@@ -31,8 +32,8 @@ app.get("/", function (req: Request, res: Response) {
 app.get("/user", getUser);
 app.get("/users", getUsers);
 app.post("/users", teste2);
-app.delete("/users", teste3);
-app.put("/users", teste4);
+app.delete("/users", checkUserPermissions, teste3);
+app.put("/users", checkUserPermissions, teste4);
 app.get("/users/access", teste5);
 
 app.listen(port, function () {
